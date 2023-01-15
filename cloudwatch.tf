@@ -1,13 +1,3 @@
-locals {
-  pii_data_identifiers = [
-    "arn:aws:dataprotection::aws:data-identifier/Name",
-    "arn:aws:dataprotection::aws:data-identifier/Address",
-    "arn:aws:dataprotection::aws:data-identifier/DateOfBirth",
-    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-    "arn:aws:dataprotection::aws:data-identifier/VehicleIdentificationNumber",
-    "arn:aws:dataprotection::aws:data-identifier/ZipCode-US"
-  ]
-}
 
 resource "aws_cloudwatch_log_group" "employee_logs" {
   name              = "employee-logs"
