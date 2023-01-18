@@ -1,3 +1,13 @@
+locals {
+  pii_data_identifiers = [
+    "arn:aws:dataprotection::aws:data-identifier/Name",
+    "arn:aws:dataprotection::aws:data-identifier/Address",
+    "arn:aws:dataprotection::aws:data-identifier/DateOfBirth",
+    "arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+    "arn:aws:dataprotection::aws:data-identifier/VehicleIdentificationNumber",
+    "arn:aws:dataprotection::aws:data-identifier/ZipCode-US"
+  ]
+}
 
 resource "aws_cloudwatch_log_group" "employee_logs" {
   name              = "employee-logs"
@@ -25,9 +35,6 @@ data "aws_cloudwatch_log_data_protection_policy_document" "log_data_protection_p
     operation {
       audit {
         findings_destination {
-          s3 {
-            bucket = module.employee_audit_logs_bucket.s3_bucket_id
-          }
           cloudwatch_logs {
             log_group = aws_cloudwatch_log_group.employee_audit_logs.name
           }
