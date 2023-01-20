@@ -8,11 +8,11 @@ variable "iam_role_arn" {
   default     = ""
 }
 variable "slack_channel_id" {
-  description = "The id of the Slack channel"
+  description = "The ID of the Slack channel"
   type        = string
 }
 variable "slack_workspace_id" {
-  description = "The id of the Slack workspace"
+  description = "The ID of the Slack workspace"
   type        = string
 }
 
